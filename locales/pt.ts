@@ -1,1 +1,3 @@
-export default {}
+export default {
+	oi: 'Oi, Chego em breve',
+}

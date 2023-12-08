@@ -15,8 +15,7 @@ export default defineNuxtConfig({
 	},
 	googleFonts: {
 		families: {
-			'Montserrat+Alternates': true,
-			'Delius+Unicase': true,
+			'ADLaM+Display': true,
 		},
 	},
 	i18n: {

@@ -27,6 +27,7 @@
 		"@nuxt/devtools": "^1.0.5",
 		"eslint": "^8.55.0",
 		"nuxt": "^3.8.2",
+		"tailwindcss-animated": "^1.0.1",
 		"vue": "^3.3.10",
 		"vue-router": "^4.2.5"
 	}
