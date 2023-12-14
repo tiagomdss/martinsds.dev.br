@@ -43,4 +43,12 @@ export default defineNuxtConfig({
 	devtools: {
 		enabled: true,
 	},
+	devServer: {
+		host: 'bmo.cbpf.dev.br',
+		port: 3003,
+		https: {
+			key: '../ssl/key.pem',
+			cert: '../ssl/cert.pem',
+		},
+	},
 })
