@@ -1,3 +1,7 @@
 export default {
-	oi: 'Hola, Estaré aquí pronto',
+	oi: 'Bienvenidos a mi sitio web',
+	inicio: 'Inicio',
+	sobre: 'Acerca de',
+	projetos: 'Proyectos',
+	certificados: 'Certificados',
 }

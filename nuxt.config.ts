@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
 	css: ['~/assets/global.sass'],
-	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxtjs/google-fonts', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-icon', '@nuxtseo/module', '@nuxt/image', 'nuxt-primevue'],
+	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxtjs/google-fonts', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-icon', '@nuxtseo/module', '@nuxt/image', 'nuxt-primevue', 'nuxt-paypal'],
 	app: {
 		head: {
 			templateParams: {
@@ -18,6 +18,9 @@ export default defineNuxtConfig({
 			'ADLaM+Display': true,
 		},
 	},
+	paypal: {
+		clientId: 'AWDEpGlGdkYxGT-l_2dDz6ooRnsPiK1N5DYcVdYlCM0GuLKlctSQ6Dn_DBcUFX2Q2Nw56kEYI2XXuBHj',
+	  },
 	i18n: {
 		baseUrl: 'https://martinsds.dev.br/',
 		defaultLocale: 'pt',
