@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
+useHead({
+	title: t('home.title'),
+})
 </script>
 
 <template>
@@ -8,12 +11,13 @@ const { t } = useI18n()
 			<img src="../assets/tiago.jpg" alt="Your Name" class="w-full h-full object-cover">
 		</div>
 		<div class="text-center mt-4">
-			<h2 class="text-6xl text-slate-900 dark:text-white">
+			<h2 class="text-6xl text-white">
 				Tiago Martins
 			</h2>
-			<p class="text-slate-900 dark:text-white text-2xl">
+			<p class="text-white text-2xl pt-2">
 				{{ t("oi") }}
 			</p>
 		</div>
+		<Button />
 	</section>
 </template>

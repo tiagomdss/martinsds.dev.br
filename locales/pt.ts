@@ -1,7 +1,10 @@
 export default {
 	oi: 'Bem vindo ao meu site',
-	inicio: 'Inicio',
-	sobre: 'Inicio',
-	projetos: 'Inicio',
-	certificados: 'Inicio',
+	inicio: 'Início',
+	sobre: 'Sobre',
+	projetos: 'Projetos',
+	certificados: 'Certificados',
+	home: {
+		title: 'Início',
+	},
 }

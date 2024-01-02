@@ -4,4 +4,7 @@ export default {
 	sobre: 'About',
 	projetos: 'Projects',
 	certificados: 'Certificates',
+	home: {
+		title: 'Home',
+	},
 }
