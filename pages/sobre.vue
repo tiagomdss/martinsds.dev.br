@@ -1,112 +1,131 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import type { Ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useMouseInElement } from '@vueuse/core'
 
-const cardData = [
+interface Card {
+	image: string
+	title: string
+	description: string
+	skills: string[]
+	icons: string[]
+}
+
+const cardElement: Ref<HTMLElement | null> = ref(null)
+
+const { elementX, elementY, isOutside, elementHeight, elementWidth } = useMouseInElement(cardElement)
+
+const cards: Card[] = [
 	{
-		title: 'How we design and code open-source projects?',
-		author: 'Tania Andrew',
-		image: 'https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+		image: '../tiago.jpg',
+		title: 'Quer saber mais sobre mim?',
+		description: '',
+		skills: [''],
+		icons: [''],
 	},
 	{
-		title: 'Another Card Title 1',
-		author: 'Author 1',
-		image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+		image: '../tiago.jpg',
+		title: 'Vida Pessoal',
+		description: 'Sou uma pessoa extremamente comunicativa e sempre disposta a aprender mais. Gosto de estar sempre rodeada de amigos e, principalmente, fazer o que mais amo: jogar videogame. Para mim, jogar videogame é melhor que chocolate.',
+		skills: [''],
+		icons: [''],
 	},
 	{
-		title: 'Another Card Title 2',
-		author: 'Author 2',
-		image: 'https://example.com/image2.jpg',
+		image: '../tiago.jpg',
+		title: 'Vida Profissional',
+		description: 'Sou uma pessoa dedicada que começou a vida como auxiliar administrativo. Mesmo nessa área, sempre demonstrei meu amor pela computação, pois gostava de criar, dar ideias e ajudar quando necessário em outras áreas. Depois que parti para a vida na programação web e Java, nunca mais quis voltar atrás e descobri minha verdadeira vocação.',
+		skills: [''],
+		icons: [''],
 	},
 	{
-		title: 'Another Card Title 3',
-		author: 'Author 3',
-		image: 'https://example.com/image3.jpg',
-	},
-	{
-		title: 'Another Card Title 4',
-		author: 'Author 4',
-		image: 'https://example.com/image4.jpg',
+		image: '../tiago.jpg',
+		title: 'Conhecimentos Gerais',
+		description: '',
+		skills: ['HTML/CSS (Todos deviam conhecer isso pelo menos.)', 'Javascript', 'TypeScript'],
+		icons: ['skill-icons:html', 'skill-icons:javascript', 'skill-icons:typescript'],
 	},
 ]
 
-const isCardRotated = ref(false)
-let currentCardIndex = 0
+const currentCardIndex = ref(0)
 
-function rotateCard() {
-	currentCardIndex = (currentCardIndex + 1) % cardData.length
-	isCardRotated.value = !isCardRotated.value
+const currentCard = computed(() => cards[currentCardIndex.value])
+
+const cardTransform = computed(() => {
+	const MAX_ROTATION = 6
+
+	const rX = (MAX_ROTATION / 2 - (elementY.value / elementHeight.value) * MAX_ROTATION).toFixed(2)
+	const rY = ((elementX.value / elementWidth.value) * MAX_ROTATION - MAX_ROTATION / 2).toFixed(2)
+
+	return isOutside.value
+		? ''
+		: `perspective(${elementWidth.value}px) rotateX(${rX}deg) rotateY(${rY}deg)`
+})
+
+function changeCard() {
+	if (cardElement.value) {
+		cardElement.value.classList.add('rotate-animation')
+
+		setTimeout(() => {
+			currentCardIndex.value = (currentCardIndex.value + 1) % cards.length
+
+			cardElement.value?.classList.remove('rotate-animation')
+		}, 500)
+	}
 }
 </script>
 
 <template>
-	<section class="bg-gradient-to-br from-sky-500 dark:from-blue-700 to-pink-500 dark:to-red-950 min-h-screen flex items-center justify-center">
-		<div class="grid grid-cols-2 gap-8">
-			<div
-				:class="{ hidden: isCardRotated }"
-				class="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
-			>
-				<div
-					:style="{ 'background-image': `url(${cardData[currentCardIndex].image})` }"
-					class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none"
-				>
-					<div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50" />
+	<section class="bg-gradient-to-br min-h-screen flex items-center justify-center">
+		<div
+			ref="cardElement"
+			class="card h-[30rem] w-[30rem] rounded overflow-hidden shadow-lg"
+			:style="{ transform: cardTransform }"
+		>
+			<div>
+				<div class="flex w-full justify-center pt-5">
+					<img class="w-[7rem] h-[7rem] rounded-full" :src="currentCard.image" alt="">
 				</div>
-				<div class="relative p-6 px-6 py-14 md:px-12">
-					<h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
-						{{ cardData[currentCardIndex].title }}
-					</h2>
-					<h5 class="block mb-4 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-gray-400">
-						{{ cardData[currentCardIndex].author }}
-					</h5>
+				<div class="px-6">
+					<div class=" text-3xl pt-10 mb-2 text-cyan-50 text-center">
+						{{ currentCard.title }}
+					</div>
+					<p class="text-cyan-50 text-base">
+						{{ currentCard.description }}
+					</p>
+					<ul>
+						<li v-for="(skill, index) in currentCard.skills" :key="skill" class="text-cyan-50 text-base flex items-center mb-2">
+							<div class="mr-2">
+								<Icon :name="currentCard.icons[index]" color="white" size="1.5rem" />
+							</div>
+							{{ skill }}
+						</li>
+					</ul>
 				</div>
-			</div>
-
-			<div
-				:class="{ hidden: !isCardRotated }"
-				class="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
-			>
-				<div
-					class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-gradient-to-br from-sky-500 dark:from-blue-700 to-pink-500 dark:to-red-950"
-				>
-					<div class="absolute inset-0 w-full h-full bg-gradient-to-t from-black/80 via-black/50" />
-				</div>
-				<div class="relative p-6 px-6 py-14 md:px-12">
-					<h2 class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
-						Another Card Title
-					</h2>
-					<h5 class="block mb-4 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-gray-400">
-						Another Author
-					</h5>
-					<!-- Adicione mais conteúdo aqui conforme necessário -->
+				<div class="flex px-6 pb-2 justify-center">
+					<button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" @click="changeCard">
+						Próximo
+					</button>
 				</div>
 			</div>
 		</div>
-
-		<button class="mt-8 flip-button" @click="rotateCard">
-			Flip Card
-		</button>
 	</section>
 </template>
 
 <style scoped>
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  pointer-events: none;
+.card {
+  transition: transform 0.5s ease-out;
 }
 
-.flip-button {
-  background-color: #3490dc;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.rotate-animation {
+  animation: rotateYAnimation 0.5s ease-out;
 }
 
-.flip-button:hover {
-  background-color: #2779bd;
+@keyframes rotateYAnimation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 </style>

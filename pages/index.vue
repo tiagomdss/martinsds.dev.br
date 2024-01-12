@@ -6,7 +6,7 @@ useHead({
 </script>
 
 <template>
-	<section class="bg-gradient-to-br from-sky-500 dark:from-blue-700 to-pink-500 dark:to-red-950  min-h-[calc(100.6vh-6px)] w-full h-screen flex flex-col items-center justify-center">
+	<section class="bg-gradient-to-br min-h-[calc(100.6vh-6px)] w-full h-screen flex flex-col items-center justify-center">
 		<div class="w-52 h-52 rounded-full overflow-hidden">
 			<img src="../assets/tiago.jpg" alt="Your Name" class="w-full h-full object-cover">
 		</div>
