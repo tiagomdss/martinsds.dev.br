@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
-	css: ['~/assets/global.sass'],
-	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxtjs/google-fonts', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-icon', '@nuxtseo/module', '@nuxt/image', 'nuxt-primevue', 'nuxt-paypal'],
+	css: ['~/assets/global.css'],
+	srcDir: 'app',
+	modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode'],
 	app: {
 		head: {
 			templateParams: {
@@ -12,24 +13,14 @@ export default defineNuxtConfig({
 		preference: 'dark',
 		fallback: 'dark',
 		classSuffix: '',
+		storageKey: 'theme',
+		storage: 'cookie',
 	},
+	// color mode is provided by @nuxt/ui
 	googleFonts: {
 		families: {
 			'ADLaM+Display': true,
 		},
-	},
-	paypal: {
-		clientId: 'AWDEpGlGdkYxGT-l_2dDz6ooRnsPiK1N5DYcVdYlCM0GuLKlctSQ6Dn_DBcUFX2Q2Nw56kEYI2XXuBHj',
-	  },
-	i18n: {
-		baseUrl: 'https://martinsds.dev.br/',
-		defaultLocale: 'pt',
-		langDir: 'locales',
-		locales: [
-			{ code: 'en', iso: 'en-US', name: 'English (US)', file: 'en.ts' },
-			{ code: 'es', iso: 'es', name: 'Español (ESP)', file: 'es.ts' },
-			{ code: 'pt', iso: 'pt-BR', name: 'Português (BR)', file: 'pt.ts' },
-		],
 	},
 	site: {
 		url: 'https://martinsds.dev.br/',
@@ -45,13 +36,5 @@ export default defineNuxtConfig({
 	},
 	devtools: {
 		enabled: true,
-	},
-	devServer: {
-		host: 'bmo.cbpf.dev.br',
-		port: 3003,
-		https: {
-			key: '../ssl/key.pem',
-			cert: '../ssl/cert.pem',
-		},
 	},
 })
