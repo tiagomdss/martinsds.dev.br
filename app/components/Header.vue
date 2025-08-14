@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useColorMode } from '#imports'
+import { computed, useColorMode, ref } from '#imports'
 const colorMode = useColorMode()
 const isDark = computed({
   get() { return colorMode.value === 'dark' },
@@ -16,6 +16,7 @@ function onToggleTheme(e: MouseEvent) {
   colorMode.preference = next
 }
 
+const openMobile = ref(false)
 </script>
 
 <template>
@@ -29,6 +30,10 @@ function onToggleTheme(e: MouseEvent) {
           <NuxtLink to="/#portfolio" class="text-neutral-700 hover:text-neutral-900 dark:text-white/90 dark:hover:text-white transition">Portfólio</NuxtLink>
         </div>
         <div class="flex items-center gap-3">
+          <!-- Mobile menu button -->
+          <UButton class="md:hidden" color="white" variant="soft" aria-label="Abrir menu" @click="openMobile = true">
+            <Icon name="heroicons:bars-3-20-solid" class="h-6 w-6" />
+          </UButton>
           <UButton color="white" variant="soft" @click="onToggleTheme($event)" aria-label="Alternar tema">
             <Icon v-if="!isDark" name="heroicons:moon-20-solid" class="h-6 w-6 text-amber-500" />
             <Icon v-else name="heroicons:sun-20-solid" class="h-6 w-6 text-amber-400" />
@@ -38,4 +43,19 @@ function onToggleTheme(e: MouseEvent) {
     </div>
   </nav>
   <div class="h-16" />
+
+  <!-- Mobile slide-over menu -->
+  <USlideover v-model="openMobile" side="right" :ui="{ width: 'w-72' }">
+    <div class="p-4 flex items-center justify-between border-b border-neutral-200 dark:border-white/10">
+      <span class="font-medium">Menu</span>
+      <UButton color="white" variant="soft" aria-label="Fechar menu" @click="openMobile = false">
+        <Icon name="heroicons:x-mark-20-solid" class="h-5 w-5" />
+      </UButton>
+    </div>
+    <div class="p-4 flex flex-col gap-2">
+      <NuxtLink to="/" class="py-2 px-2 rounded hover:bg-neutral-100 dark:hover:bg-white/10" @click="openMobile = false">Início</NuxtLink>
+      <NuxtLink to="/sobre" class="py-2 px-2 rounded hover:bg-neutral-100 dark:hover:bg-white/10" @click="openMobile = false">Sobre</NuxtLink>
+      <NuxtLink to="/#portfolio" class="py-2 px-2 rounded hover:bg-neutral-100 dark:hover:bg-white/10" @click="openMobile = false">Portfólio</NuxtLink>
+    </div>
+  </USlideover>
 </template>
