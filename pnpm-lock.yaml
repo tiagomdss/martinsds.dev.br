@@ -48,6 +48,9 @@ importers:
       '@nuxt/devtools':
         specifier: ^1.6.0
         version: 1.7.0(rollup@4.46.2)(vite@7.1.2(@types/node@24.2.1)(jiti@2.5.1)(sass@1.90.0)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1))(vue@3.5.18(typescript@5.9.2))
+      '@tailwindcss/typography':
+        specifier: ^0.5.16
+        version: 0.5.16(tailwindcss@3.4.17)
       eslint:
         specifier: ^9.10.0
         version: 9.33.0(jiti@2.5.1)

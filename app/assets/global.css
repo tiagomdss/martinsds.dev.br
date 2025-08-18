@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global tweaks */
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +12,95 @@
 
 html, body, #__nuxt {
   height: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-padding-top: 80px;
 }
 
 body {
-  font-family: 'ADLaM Display', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+@keyframes marquee-scroll-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  gap: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0 1rem;
+  animation: marquee-scroll-x 24s linear infinite;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    gap: 0.75rem;
+    padding: 0 0.25rem;
+    animation-duration: 36s;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.marquee-linear {
+  animation: marquee-scroll-x 42.6s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-linear {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}
+
+/* Nuxt page/layout transitions */
+.page-enter-active, .page-leave-active,
+.layout-enter-active, .layout-leave-active {
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+.page-enter-from, .layout-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.page-leave-to, .layout-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
 }

@@ -1,13 +1,19 @@
 export default defineNuxtConfig({
-	css: ['~/assets/global.css'],
-	srcDir: 'app',
-	modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode'],
+    css: ['~/assets/global.css'],
+    srcDir: 'app',
+    modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode'],
 	app: {
 		head: {
 			templateParams: {
 			  separator: '•',
 			},
+			link: [
+                { rel: 'icon', type: 'image/png', href: '/logo-icon.png' },
+                { rel: 'shortcut icon', type: 'image/png', href: '/logo-icon.png' },
+                { rel: 'apple-touch-icon', href: '/logo-icon.png' },
+			],
 		  },
+		pageTransition: { name: 'page', mode: 'default' },
 	},
 	colorMode: {
 		preference: 'dark',
@@ -16,10 +22,10 @@ export default defineNuxtConfig({
 		storageKey: 'theme',
 		storage: 'cookie',
 	},
-	// color mode is provided by @nuxt/ui
 	googleFonts: {
+		display: 'swap',
 		families: {
-			'ADLaM+Display': true,
+			Montserrat: [400, 500, 600, 700],
 		},
 	},
 	site: {

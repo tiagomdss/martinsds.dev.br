@@ -5,5 +5,8 @@
     <main class="min-h-[calc(100dvh-72px)]">
       <slot />
     </main>
+    <footer class="px-6 py-6 text-center text-sm text-neutral-600 dark:text-white/70">
+      © 2023 Copyright - Tiago Martins
+    </footer>
   </div>
 </template>
