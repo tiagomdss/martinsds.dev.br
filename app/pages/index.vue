@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useProjects } from '#imports'
+
 useHead({ title: 'Tiago Martins • Frontend, Sistemas, Gestão' })
 
-const projects = [
-  { title: 'Escola do CBPF 2025', href: 'https://escola.cbpf.br/', img: 'escola2025.png' },
-  { title: 'Convite 75 anos', href: 'https://cbpf.br/convite75/', img: 'convite100anos.png' },
-  { title: 'EAFExp • Sobre', href: 'https://eafexp.cbpf.br/2025/', img: 'eafexp2025.png' },
-  { title: 'EAFExp 2024', href: 'https://eafexp.cbpf.br/2024/', img: 'eafexp2024.png' },
-  { title: 'EAFExp 2025', href: 'https://eafexp.cbpf.br/2025/', img: 'eafexp2025.png' },
-  { title: 'Intranet CBPF', href: '/', img: 'intranet.png' },
-  { title: 'Rubin Transients 2025', href: 'https://cbpf.br/rubin_transients2025/', img: 'astronomy.png' },
-]
+const { projects } = useProjects()
+const featuredProjects = computed(() => projects.slice(0, 3))
 
 const stackIcons = [
   'simple-icons:nuxtdotjs',
@@ -39,204 +33,112 @@ const stackIcons = [
 </script>
 
 <template>
-  <section class="relative px-6 pt-16 pb-24 sm:pt-24 sm:pb-28">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid gap-10 md:grid-cols-2 md:items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs 
-            bg-neutral-100 text-neutral-700 border-neutral-200 
-            dark:bg-white/5 dark:text-white/80 dark:border-white/10">
-            <span class="size-2 rounded-full bg-emerald-400"></span>
+  <main class="relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32 flex flex-col min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div class="space-y-8 animate-fade-in-up">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-neutral-200 dark:border-white/10 text-sm font-medium text-slate-600 dark:text-slate-200 shadow-sm dark:shadow-[0_0_15px_rgba(0,0,0,0.3)] bg-white/50 dark:bg-white/5 transition-all duration-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse"></span>
             Disponível para projetos e consultoria
           </div>
-          <div class="mt-6 flex justify-center md:hidden">
-            <div class="w-40 h-40 overflow-hidden rounded-full ring-4 ring-neutral-200 dark:ring-white/10 shadow-2xl">
-              <img src="/tiago.jpg" alt="Tiago Martins" class="size-full object-cover" />
-            </div>
-          </div>
-          <h1 class="mt-6 max-w-full text-xl sm:text-4xl md:text-6xl font-semibold leading-snug sm:leading-tight tracking-tight text-neutral-900 dark:text-white break-words whitespace-normal hyphens-auto [word-break:anywhere] md:[word-break:normal]">Frontend, Analista de Sistemas e Gestor de Projetos</h1>
-          <p class="mt-4 max-w-xl text-base leading-relaxed text-neutral-700 dark:text-white/80">Crio experiências digitais modernas, acessíveis e performáticas, com foco em resultado e qualidade de código.</p>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white drop-shadow-sm dark:drop-shadow-lg transition-colors duration-200">
+            Frontend, Analista <br/>
+            de Sistemas e <br/>
+            <span class="text-emerald-700 dark:text-primary drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">Gestor de Projetos</span>
+          </h1>
+          
+          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed font-light transition-colors duration-200">
+            Crio experiências digitais modernas, acessíveis e performáticas, com foco em resultado e qualidade de código. Transformo designs complexos em interfaces responsivas.
+          </p>
 
-          <div class="mt-6 rounded-lg border px-3 py-2 
-            border-neutral-200 bg-neutral-50 
-            dark:border-white/10 dark:bg-white/5 hidden sm:block">
-            <div class="marquee overflow-hidden" aria-label="Tecnologias e ferramentas que utilizo">
-              <div class="marquee-track" aria-hidden="true">
-                <span class="marquee-item"><Icon name="simple-icons:nuxtdotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:vuedotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:tailwindcss" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:typescript" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:javascript" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:html5" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:css3" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:nodedotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:git" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:github" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:vite" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="mdi:language-java" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:php" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:wordpress" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:joomla" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mysql" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mongodb" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mariadb" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:gitlab" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:nextcloud" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:jira" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:realm" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item">
-                  <span class="px-2 py-1 text-xs rounded bg-neutral-100 text-neutral-700 dark:bg-white/10 dark:text-white/80">MVVM</span>
-                </span>
-                <span class="marquee-item">
-                  <span class="px-2 py-1 text-xs rounded bg-neutral-100 text-neutral-700 dark:bg-white/10 dark:text-white/80">Scrum</span>
-                </span>
-                <span class="marquee-item"><Icon name="simple-icons:nuxtdotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:vuedotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:tailwindcss" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:typescript" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:javascript" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:html5" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:css3" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:nodedotjs" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:git" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:github" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:vite" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="mdi:language-java" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:php" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:wordpress" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:joomla" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mysql" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mongodb" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:mariadb" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:gitlab" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:nextcloud" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:jira" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item"><Icon name="simple-icons:realm" class="h-7 w-7 sm:h-9 sm:w-9 text-neutral-700 dark:text-white/80" /></span>
-                <span class="marquee-item">
-                  <span class="px-2 py-1 text-xs rounded bg-neutral-100 text-neutral-700 dark:bg-white/10 dark:text-white/80">MVVM</span>
-                </span>
-                <span class="marquee-item">
-                  <span class="px-2 py-1 text-xs rounded bg-neutral-100 text-neutral-700 dark:bg-white/10 dark:text-white/80">Scrum</span>
-                </span>
-              </div>
-            </div>
+          <div class="glass-panel rounded-2xl p-6 flex flex-wrap gap-6 items-center justify-start border border-neutral-200 dark:border-white/5 shadow-lg dark:shadow-neon bg-white/60 dark:bg-white/5 transition-colors duration-200">
+            <Icon name="simple-icons:vuedotjs" class="text-3xl text-green-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Vue.js" />
+            <Icon name="simple-icons:javascript" class="text-3xl text-yellow-300 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="JavaScript" />
+            <Icon name="simple-icons:html5" class="text-3xl text-orange-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="HTML5" />
+            <Icon name="simple-icons:css3" class="text-3xl text-blue-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="CSS3" />
+            <Icon name="simple-icons:nodedotjs" class="text-3xl text-green-500 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Node.js" />
+            <Icon name="simple-icons:git" class="text-3xl text-orange-500 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Git" />
+            
+            <div class="flex items-center justify-center w-8 h-8 rounded bg-sky-400/10 text-sky-300 font-bold text-xs hover:scale-110 transition-transform cursor-pointer border border-sky-400/30 shadow-[0_0_10px_rgba(56,189,248,0.2)]" title="Tailwind CSS">TW</div>
+            <div class="flex items-center justify-center w-8 h-8 rounded bg-blue-600/10 text-blue-400 font-bold text-xs hover:scale-110 transition-transform cursor-pointer border border-blue-500/30 shadow-[0_0_10px_rgba(59,130,246,0.2)]" title="TypeScript">TS</div>
           </div>
 
-          <div class="mt-6 sm:hidden">
-            <div class="grid grid-cols-1 gap-3 items-center">
-              <div class="rounded-lg border px-3 py-3 
-                border-neutral-200 bg-neutral-50 
-                dark:border-white/10 dark:bg-white/5">
-                <div class="overflow-hidden" aria-label="Tecnologias e ferramentas que utilizo (mobile)">
-                  <div class="flex items-center space-x-6 w-max marquee-linear" aria-hidden="true">
-                    <template v-for="i in 3" :key="i">
-                      <Icon v-for="icon in stackIcons" :key="`${i}-${icon}`" :name="icon" class="w-12 h-12 text-neutral-700 dark:text-white/80" />
-                    </template>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 w-full flex flex-col gap-2 sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-            <a
-              href="https://www.linkedin.com/in/tiago-martins-041b48156/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors
-                border border-neutral-200 bg-neutral-100 text-neutral-900 hover:bg-neutral-200
-                dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-              aria-label="LinkedIn"
-            >
-              <Icon name="mdi:linkedin" class="h-5 w-5" />
-              <span>LinkedIn</span>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.linkedin.com/in/tiago-martins-041b48156/" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
+              <Icon name="simple-icons:linkedin" class="text-xl text-[#0077b5] dark:text-white group-hover:text-primary transition-colors duration-200" />
+              LinkedIn
             </a>
-
-            <a
-              href="https://github.com/tiagomdss"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors
-                border border-neutral-200 bg-neutral-100 text-neutral-900 hover:bg-neutral-200
-                dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-              aria-label="GitHub"
-            >
-              <Icon name="mdi:github" class="h-5 w-5" />
-              <span>GitHub</span>
+            <a href="https://github.com/tiagomdss" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
+              <Icon name="simple-icons:github" class="text-xl text-slate-900 dark:text-white group-hover:text-primary transition-colors duration-200" />
+              GitHub
             </a>
-
-            <a
-              href="https://www.instagram.com/eusoutinhoo"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors
-                border border-neutral-200 bg-neutral-100 text-neutral-900 hover:bg-neutral-200
-                dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-              aria-label="Instagram"
-            >
-              <Icon name="mdi:instagram" class="h-5 w-5" />
-              <span>Instagram</span>
+            <a href="https://www.instagram.com/eusoutinhoo" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
+              <Icon name="simple-icons:instagram" class="text-xl text-[#E4405F] dark:text-white group-hover:text-primary transition-colors duration-200" />
+              Instagram
             </a>
-
-            <a
-              href="mailto:tiago@martinsds.dev"
-              class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors
-                border border-neutral-200 bg-neutral-100 text-neutral-900 hover:bg-neutral-200
-                dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-              aria-label="Enviar e-mail"
-            >
-              <Icon name="heroicons:envelope-20-solid" class="h-5 w-5" />
-              <span>E-mail</span>
+            <a href="mailto:tiago@martinsds.dev" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
+              <Icon name="heroicons:envelope-20-solid" class="text-xl text-slate-600 dark:text-white group-hover:text-primary transition-colors duration-200" />
+              E-mail
             </a>
           </div>
-          <div class="mt-6 flex flex-wrap gap-2 text-xs">
-            <UBadge color="gray" variant="soft">Nuxt</UBadge>
-            <UBadge color="gray" variant="soft">Vue</UBadge>
-            <UBadge color="gray" variant="soft">Tailwind</UBadge>
-            <UBadge color="gray" variant="soft">Acessibilidade</UBadge>
-            <UBadge color="gray" variant="soft">Perf</UBadge>
-            <UBadge color="gray" variant="soft">Gestão Ágil</UBadge>
+
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Nuxt</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Vue</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Tailwind</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Acessibilidade</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Perf</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Gestão Ágil</span>
           </div>
         </div>
-        <div class="hidden md:flex justify-center">
-          <div class="size-56 overflow-hidden rounded-full ring-4 ring-neutral-200 dark:ring-white/10 shadow-2xl">
-            <img src="/tiago.jpg" alt="Tiago Martins" class="size-full object-cover" />
+
+        <div class="flex justify-center lg:justify-end relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 rounded-full blur-3xl transform translate-x-4 translate-y-4 animate-pulse"></div>
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full glass-panel border-4 border-white/20 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center group bg-white/50 dark:bg-transparent transition-colors duration-200">
+             <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+            <img src="/tiago.jpg" alt="Tiago Martins" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
+          </div>
+          
+          <div class="absolute -bottom-4 -right-4 lg:bottom-10 lg:right-10 bg-white dark:bg-[#0f1115] p-4 rounded-2xl shadow-xl dark:shadow-[0_0_20px_rgba(0,0,0,0.6)] border border-neutral-200 dark:border-white/10 animate-bounce transition-colors duration-200" style="animation-duration: 3s;">
+            <div class="flex items-center gap-3">
+              <div class="bg-blue-900/30 p-2 rounded-lg border border-blue-500/30 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                <Icon name="heroicons:code-bracket-20-solid" class="text-blue-400 text-xl" />
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium transition-colors duration-200">Experiência</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white transition-colors duration-200">8+ Anos</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="relative px-6 py-14 sm:py-20">
-    <div class="mx-auto max-w-7xl">
-      <div class="mb-8 flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-2xl font-semibold text-neutral-900 dark:text-white sm:text-3xl">Portfólio</h2>
-          <p class="mt-1 text-neutral-700 dark:text-white/70">Alguns projetos selecionados</p>
-        </div>
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full" id="projects">
+      <div class="flex flex-col items-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 relative inline-block drop-shadow-md transition-colors duration-200">
+          <span class="gradient-text">Meus Projetos</span>
+          <div class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full opacity-70 shadow-[0_0_10px_#a855f7]"></div>
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-center max-w-2xl font-light transition-colors duration-200">
+          Uma seleção de projetos recentes que demonstram minhas habilidades em design e desenvolvimento frontend.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <NuxtLink v-for="p in projects" :key="p.href" :href="p.href" target="_blank" rel="noopener noreferrer" class="block group">
-          <UCard class="transition border 
-            border-neutral-200 bg-neutral-50 
-            dark:border-white/10 dark:bg-white/5 
-            group-hover:border-neutral-300 dark:group-hover:border-white/20 
-            group-hover:bg-neutral-100 dark:group-hover:bg-white/10">
-            <template #header>
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-lg font-medium text-neutral-900 dark:text-white">{{ p.title }}</h3>
-                <span class="text-neutral-600 group-hover:text-neutral-900 dark:text-white/70 dark:group-hover:text-white">
-                  <Icon name="heroicons:arrow-top-right-on-square-20-solid" />
-                </span>
-              </div>
-            </template>
-            <div class="mt-1 h-28 overflow-hidden rounded-lg">
-              <img v-if="p.img" :src="`/portfolio/${p.img}`" :alt="p.title" class="h-28 w-full object-cover" />
-              <div v-else class="h-28 rounded-lg bg-gradient-to-tr from-neutral-100 to-neutral-200 dark:from-white/5 dark:to-white/10" />
-            </div>
-          </UCard>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ProjectCard v-for="p in featuredProjects" :key="p.href" :project="p" />
+      </div>
+
+      <div class="mt-12 flex justify-center">
+        <NuxtLink to="/projetos">
+          <button class="glass-button px-8 py-3 rounded-full text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md transition-all duration-200 hover:scale-105 hover:bg-neutral-100 dark:hover:bg-white/10">
+            Ver todos os projetos
+            <Icon name="heroicons:arrow-right-20-solid" class="ml-2 w-5 h-5 inline-block" />
+          </button>
         </NuxtLink>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </template>

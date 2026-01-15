@@ -5,12 +5,11 @@
 * {
   margin: 0;
   padding: 0;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 400ms;
 }
 
-html, body, #__nuxt {
+html,
+body,
+#__nuxt {
   height: 100%;
   overflow-x: hidden;
 }
@@ -24,8 +23,13 @@ body {
 }
 
 @keyframes marquee-scroll-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee {
@@ -53,6 +57,7 @@ body {
     -webkit-mask-image: none;
     mask-image: none;
   }
+
   .marquee-track {
     gap: 0.75rem;
     padding: 0 0.25rem;
@@ -92,15 +97,21 @@ body {
 }
 
 /* Nuxt page/layout transitions */
-.page-enter-active, .page-leave-active,
-.layout-enter-active, .layout-leave-active {
+.page-enter-active,
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
   transition: opacity 280ms ease, transform 280ms ease;
 }
-.page-enter-from, .layout-enter-from {
+
+.page-enter-from,
+.layout-enter-from {
   opacity: 0;
   transform: translateX(-20px);
 }
-.page-leave-to, .layout-leave-to {
+
+.page-leave-to,
+.layout-leave-to {
   opacity: 0;
   transform: translateX(20px);
 }
