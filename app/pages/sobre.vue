@@ -20,7 +20,7 @@ const finalEducation = [
   {
     title: 'Gestão de Tecnologia da Informação',
     institution: 'Concluido em 2020',
-    period: '2016 - 2020',
+    period: '2018 - 2020',
     description: 'Fundamentação teórica sólida em algoritmos, estruturas de dados e engenharia de software. Trabalho de conclusão de curso com ênfase em "Otimização de Performance em Single Page Applications".',
     tags: ['Algoritmos', 'Sistemas Distribuídos'],
     icon: 'heroicons:building-library-20-solid',
