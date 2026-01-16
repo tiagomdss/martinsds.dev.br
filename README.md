@@ -59,7 +59,7 @@ Agora abra `http://localhost:3000` e divirta-se!
 
 ## 🤔 Fato Curioso do Projeto
 
-> Sabia que este código foi escrito com base em muito café e uma playlist de Lo-Fi que dura 48 horas? A cada refatoração bem-sucedida, um anjo do CSS ganha um padding novo. 👼
+> Sabia que este código foi escrito com base em muito energético e uma playlist de Lo-Fi que dura 48 horas? A cada refatoração bem-sucedida, um anjo do CSS ganha um padding novo. 👼
 
 ---
 
