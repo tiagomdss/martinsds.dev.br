@@ -1,18 +1,18 @@
 export default defineNuxtConfig({
-    css: ['~/assets/global.css'],
-    srcDir: 'app',
-    modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode'],
+	css: ['~/assets/global.css'],
+	srcDir: 'app',
+	modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss'],
 	app: {
 		head: {
 			templateParams: {
-			  separator: '•',
+				separator: '•',
 			},
 			link: [
-                { rel: 'icon', type: 'image/png', href: '/logo-icon.png' },
-                { rel: 'shortcut icon', type: 'image/png', href: '/logo-icon.png' },
-                { rel: 'apple-touch-icon', href: '/logo-icon.png' },
+				{ rel: 'icon', type: 'image/png', href: '/logo-icon.png' },
+				{ rel: 'shortcut icon', type: 'image/png', href: '/logo-icon.png' },
+				{ rel: 'apple-touch-icon', href: '/logo-icon.png' },
 			],
-		  },
+		},
 		pageTransition: { name: 'page', mode: 'default' },
 	},
 	colorMode: {
