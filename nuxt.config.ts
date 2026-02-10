@@ -31,7 +31,7 @@ export default defineNuxtConfig({
 	site: {
 		url: 'https://martinsds.dev.br/',
 		name: 'Tiago Martins',
-		description: 'Desenvolvedor Front-End',
+		description: 'Gerente de Operação da Tecnologia da Informação',
 		defaultLocale: 'pt',
 		identity: {
 			type: 'Person',

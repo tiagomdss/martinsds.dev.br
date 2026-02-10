@@ -40,14 +40,14 @@ const finalEducation = [
               Sobre
             </h1>
             <p class="text-xl font-medium text-purple-600 dark:text-purple-400">
-              Frontend • Analista de Sistemas • Gestão de Projetos
+              Gerente de Operação da Tecnologia da Informação
             </p>
           </div>
           
           <div class="prose dark:prose-invert text-slate-700 dark:text-slate-300 leading-relaxed text-lg max-w-2xl">
             <p>
-              Olá! Sou Tiago Martins. Trabalho com desenvolvimento <strong>Frontend</strong>, análise e desenho de <strong>Sistemas</strong> e <strong>Gestão de Projetos</strong>. 
-              Gosto de criar experiências digitais modernas, acessíveis e performáticas, com foco em resultado, qualidade de código e boa comunicação com stakeholders.
+              Olá! Sou Tiago Martins. Atuo como <strong>Gerente de Operação da Tecnologia da Informação</strong>, com foco em excelência operacional e liderança técnica. 
+              Gosto de criar experiências digitais modernas, acessíveis e performáticas, unindo visão estratégica e qualidade de entrega.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ const finalEducation = [
             <ul class="space-y-4">
               <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.6)]"></span>
-                <span><strong class="text-slate-900 dark:text-white">Frontend e Sistemas</strong> — desenvolvimento de interfaces e integrações.</span>
+                <span><strong class="text-slate-900 dark:text-white">Operações de TI</strong> — gestão de infraestrutura, performance e continuidade.</span>
               </li>
               <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.6)]"></span>

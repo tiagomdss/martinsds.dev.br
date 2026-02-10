@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useProjects } from '#imports'
 
-useHead({ title: 'Tiago Martins • Frontend, Sistemas, Gestão' })
+useHead({ title: 'Tiago Martins • Gerente de Operação de TI' })
 
 const { projects } = useProjects()
 const featuredProjects = computed(() => projects.slice(0, 3))
@@ -43,9 +43,9 @@ const stackIcons = [
           </div>
           
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white drop-shadow-sm dark:drop-shadow-lg transition-colors duration-200">
-            Frontend, Analista <br/>
-            de Sistemas e <br/>
-            <span class="text-emerald-700 dark:text-primary drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">Gestor de Projetos</span>
+            Gerente de Operação <br/>
+            da Tecnologia <br/>
+            <span class="text-emerald-700 dark:text-primary drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">da Informação</span>
           </h1>
           
           <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed font-light transition-colors duration-200">
