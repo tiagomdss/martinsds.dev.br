@@ -1,6 +1,13 @@
 export function useProjects() {
   const projects = [
     {
+      title: 'Wagner Philippe',
+      description: 'Portfólio interativo de Wagner Philippe Calazans, Administrador de Sistemas Linux Sênior.',
+      tags: ['Portfolio', 'System Admin', 'Web'],
+      href: 'https://site-wagner-fawn.vercel.app/',
+      img: 'wagner.png'
+    },
+    {
       title: 'Treinamento Nuxt 4',
       description: 'Plataforma oficial de ensino do framework Nuxt 4. Inclui documentação interativa e exemplos práticos.',
       tags: ['Nuxt', 'Vue', 'Content'],
