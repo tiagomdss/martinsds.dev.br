@@ -21,10 +21,10 @@ Bem-vindo ao repositório do meu canto digital! Aqui é onde a magia do **Fronte
 
 ## 🛠️ Tech Stack (O Coração da Máquina)
 
-- **Framework**: [Nuxt](https://nuxt.com/) (Vue.js no esteroide)
-- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) (Utility-first is life)
-- **Componentes**: [Nuxt UI](https://ui.nuxt.com/) (Sleek & Professional)
-- **Ícones**: [Iconify](https://iconify.design/) (Simplesmente todos os ícones do universo)
+- **Framework**: [Nuxt](https://nuxt.com/) (Vue.js no esteroide).
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) (Utility-first is life).
+- **Componentes**: [Nuxt UI](https://ui.nuxt.com/) (Sleek & Professional).
+- **Ícones**: [Iconify](https://iconify.design/) (Simplesmente todos os ícones do universo).
 - **Animações**: Tailwind Animated & Transições customizadas.
 
 ---
@@ -59,7 +59,7 @@ Agora abra `http://localhost:3000` e divirta-se!
 
 ## 🤔 Fato Curioso do Projeto
 
-> Sabia que este código foi escrito com base em muito café e uma playlist de Lo-Fi que dura 48 horas? A cada refatoração bem-sucedida, um anjo do CSS ganha um padding novo. 👼
+> Sabia que este código foi escrito com base em muito energético e uma playlist de Lo-Fi que dura 48 horas? A cada refatoração bem-sucedida, um anjo do CSS ganha um padding novo. 👼
 
 ---
 
