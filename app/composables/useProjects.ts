@@ -5,7 +5,7 @@ export function useProjects() {
       description: 'Portfólio interativo de Wagner Philippe Calazans, Administrador de Sistemas Linux Sênior.',
       tags: ['Portfolio', 'System Admin', 'Web'],
       href: 'https://site-wagner-fawn.vercel.app/',
-      img: 'wagner.png'
+      img: 'wagner-portfolio.png'
     },
     {
       title: 'Treinamento Nuxt 4',
