@@ -5,7 +5,8 @@
     <main class="min-h-[calc(100dvh-72px)] relative z-10">
       <slot />
     </main>
-    <footer class="px-6 py-6 text-center text-sm text-neutral-600 dark:text-white/70">
+    <ContactSection />
+    <footer class="relative z-10 px-6 py-6 text-center text-sm text-neutral-600 dark:text-white/70 border-t border-neutral-200 dark:border-white/10">
       © 2026 Copyright - Tiago Martins
     </footer>
   </div>

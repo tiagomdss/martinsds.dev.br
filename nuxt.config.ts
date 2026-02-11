@@ -1,4 +1,8 @@
 export default defineNuxtConfig({
+	runtimeConfig: {
+		resendApiKey: process.env.RESEND_API_KEY || '',
+		contactEmail: process.env.CONTACT_EMAIL || '',
+	},
 	css: ['~/assets/global.css'],
 	srcDir: 'app',
 	modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss'],
