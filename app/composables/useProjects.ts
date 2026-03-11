@@ -4,7 +4,7 @@ export function useProjects() {
       title: 'Wagner Calazans',
       description: 'Portfólio interativo de Wagner Calazans, Administrador de Sistemas Linux Sênior.',
       tags: ['Portfolio', 'System Admin', 'Web'],
-      href: 'https://site-wagner-fawn.vercel.app/',
+      href: 'https://www.wagnercalazans.com/',
       img: 'wagner.png'
     },
     {
