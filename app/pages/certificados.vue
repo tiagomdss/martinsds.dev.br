@@ -5,7 +5,7 @@ useHead({ title: 'Certificados • Tiago Martins' })
 
 type Cert = { 
   nome: string; 
-  plataforma: 'Udemy' | 'Alura' | 'Origamid';
+  plataforma: 'Udemy' | 'Alura' | 'Origamid' | 'CertiProf';
   icon: string;
 }
 
@@ -36,6 +36,9 @@ const tecnologias: Cert[] = [
   { nome: 'GitLab', plataforma: 'Origamid', icon: 'simple-icons:gitlab' },
   { nome: 'Realm', plataforma: 'Origamid', icon: 'simple-icons:realm' },
   { nome: 'Scrum', plataforma: 'Origamid', icon: 'heroicons:users-20-solid' },
+
+  { nome: 'Scrum Master', plataforma: 'CertiProf', icon: 'heroicons:clipboard-document-check-20-solid' },
+  { nome: 'Agile Leader', plataforma: 'CertiProf', icon: 'heroicons:rocket-launch-20-solid' },
 ]
 
 const getPlatformColor = (platform: string) => {
@@ -43,6 +46,7 @@ const getPlatformColor = (platform: string) => {
     case 'Udemy': return 'text-purple-600 dark:text-purple-400 border-purple-600/20 bg-purple-50 dark:bg-purple-900/10';
     case 'Alura': return 'text-blue-600 dark:text-blue-400 border-blue-600/20 bg-blue-50 dark:bg-blue-900/10';
     case 'Origamid': return 'text-yellow-600 dark:text-yellow-400 border-yellow-600/20 bg-yellow-50 dark:bg-yellow-900/10';
+    case 'CertiProf': return 'text-green-600 dark:text-green-400 border-green-600/20 bg-green-50 dark:bg-green-900/10';
     default: return 'text-gray-600 border-gray-600/20';
   }
 }
