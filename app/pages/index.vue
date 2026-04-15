@@ -34,80 +34,86 @@ const stackIcons = [
 
 <template>
   <main class="relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32 flex flex-col min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-32">
+    <!-- Circuit board decoration -->
+    <div class="absolute inset-0 circuit-bg opacity-30 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-32 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <div class="space-y-8 animate-fade-in-up">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-neutral-200 dark:border-white/10 text-sm font-medium text-slate-600 dark:text-slate-200 shadow-sm dark:shadow-[0_0_15px_rgba(0,0,0,0.3)] bg-white/50 dark:bg-white/5 transition-all duration-200">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse"></span>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-cyan-500/20 dark:border-cyan-500/30 text-sm font-medium text-slate-600 dark:text-cyan-300 shadow-sm dark:shadow-[0_0_15px_rgba(0,240,255,0.2)] bg-white/50 dark:bg-white/5 transition-all duration-200" style="font-family: 'Rajdhani', sans-serif;">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-neon-green shadow-[0_0_8px_rgba(16,185,129,0.5)] dark:shadow-[0_0_8px_#05d9e8] animate-pulse"></span>
             Disponível para projetos e consultoria
           </div>
-          
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white drop-shadow-sm dark:drop-shadow-lg transition-colors duration-200">
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white drop-shadow-sm dark:drop-shadow-lg transition-colors duration-200" style="font-family: 'Orbitron', sans-serif;">
             Gerente de Operação <br/>
             da Tecnologia <br/>
-            <span class="text-emerald-700 dark:text-primary drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">da Informação</span>
+            <span class="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 dark:from-neon-cyan dark:via-neon-purple dark:to-neon-pink bg-clip-text text-transparent drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]">da Informação</span>
           </h1>
-          
+
           <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed font-light transition-colors duration-200">
             Crio experiências digitais modernas, acessíveis e performáticas, com foco em resultado e qualidade de código. Transformo designs complexos em interfaces responsivas.
           </p>
 
-          <div class="glass-panel rounded-2xl p-6 flex flex-wrap gap-6 items-center justify-start border border-neutral-200 dark:border-white/5 shadow-lg dark:shadow-neon bg-white/60 dark:bg-white/5 transition-colors duration-200">
-            <Icon name="simple-icons:vuedotjs" class="text-3xl text-green-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Vue.js" />
-            <Icon name="simple-icons:javascript" class="text-3xl text-yellow-300 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="JavaScript" />
-            <Icon name="simple-icons:html5" class="text-3xl text-orange-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="HTML5" />
-            <Icon name="simple-icons:css3" class="text-3xl text-blue-400 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="CSS3" />
-            <Icon name="simple-icons:nodedotjs" class="text-3xl text-green-500 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Node.js" />
-            <Icon name="simple-icons:git" class="text-3xl text-orange-500 hover:scale-110 transition-transform cursor-pointer drop-shadow-md" title="Git" />
-            
-            <div class="flex items-center justify-center w-8 h-8 rounded bg-sky-400/10 text-sky-300 font-bold text-xs hover:scale-110 transition-transform cursor-pointer border border-sky-400/30 shadow-[0_0_10px_rgba(56,189,248,0.2)]" title="Tailwind CSS">TW</div>
-            <div class="flex items-center justify-center w-8 h-8 rounded bg-blue-600/10 text-blue-400 font-bold text-xs hover:scale-110 transition-transform cursor-pointer border border-blue-500/30 shadow-[0_0_10px_rgba(59,130,246,0.2)]" title="TypeScript">TS</div>
+          <div class="glass-panel rounded-2xl p-6 flex flex-wrap gap-6 items-center justify-start border border-cyan-500/20 dark:border-cyan-500/10 shadow-lg dark:shadow-neon bg-white/60 dark:bg-white/5 transition-colors duration-200">
+            <Icon name="simple-icons:vuedotjs" class="text-3xl text-green-500 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="Vue.js" />
+            <Icon name="simple-icons:javascript" class="text-3xl text-yellow-500 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="JavaScript" />
+            <Icon name="simple-icons:html5" class="text-3xl text-orange-500 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="HTML5" />
+            <Icon name="simple-icons:css3" class="text-3xl text-blue-500 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="CSS3" />
+            <Icon name="simple-icons:nodedotjs" class="text-3xl text-green-600 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="Node.js" />
+            <Icon name="simple-icons:git" class="text-3xl text-orange-600 hover:scale-110 transition-all duration-300 cursor-pointer drop-shadow-md" title="Git" />
+
+            <div class="flex items-center justify-center w-8 h-8 rounded bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan font-bold text-xs hover:scale-110 transition-all duration-300 cursor-pointer border border-cyan-300 dark:border-cyan-500/30 shadow-sm dark:shadow-[0_0_10px_rgba(0,240,255,0.2)]" title="Tailwind CSS">TW</div>
+            <div class="flex items-center justify-center w-8 h-8 rounded bg-blue-100 dark:bg-blue-600/10 text-blue-600 dark:text-blue-400 font-bold text-xs hover:scale-110 transition-all duration-300 cursor-pointer border border-blue-300 dark:border-blue-500/30 shadow-sm dark:shadow-[0_0_10px_rgba(59,130,246,0.2)]" title="TypeScript">TS</div>
           </div>
 
           <div class="flex flex-wrap gap-4">
-            <a href="https://www.linkedin.com/in/tiago-martins-041b48156/" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
-              <Icon name="simple-icons:linkedin" class="text-xl text-[#0077b5] dark:text-white group-hover:text-primary transition-colors duration-200" />
+            <a href="https://www.linkedin.com/in/tiago-martins-041b48156/" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-cyan-500/20 dark:border-cyan-500/20 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-cyan-500/10 group transition-all duration-200">
+              <Icon name="simple-icons:linkedin" class="text-xl text-[#0077b5] dark:text-cyan-400 group-hover:text-neon-cyan transition-colors duration-200" />
               LinkedIn
             </a>
-            <a href="https://github.com/tiagomdss" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
-              <Icon name="simple-icons:github" class="text-xl text-slate-900 dark:text-white group-hover:text-primary transition-colors duration-200" />
+            <a href="https://github.com/tiagomdss" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-cyan-500/20 dark:border-cyan-500/20 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-cyan-500/10 group transition-all duration-200">
+              <Icon name="simple-icons:github" class="text-xl text-slate-900 dark:text-cyan-400 group-hover:text-neon-cyan transition-colors duration-200" />
               GitHub
             </a>
-            <a href="https://www.instagram.com/eusoutinhoo" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
-              <Icon name="simple-icons:instagram" class="text-xl text-[#E4405F] dark:text-white group-hover:text-primary transition-colors duration-200" />
+            <a href="https://www.instagram.com/eusoutinhoo" target="_blank" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-cyan-500/20 dark:border-cyan-500/20 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-cyan-500/10 group transition-all duration-200">
+              <Icon name="simple-icons:instagram" class="text-xl text-[#E4405F] dark:text-cyan-400 group-hover:text-neon-cyan transition-colors duration-200" />
               Instagram
             </a>
-            <a href="mailto:tiago@martinsds.dev" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-white/10 group transition-all duration-200">
-              <Icon name="heroicons:envelope-20-solid" class="text-xl text-slate-600 dark:text-white group-hover:text-primary transition-colors duration-200" />
+            <a href="mailto:tiago@martinsds.dev" class="glass-button px-6 py-3 rounded-lg flex items-center gap-3 text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-cyan-500/20 dark:border-cyan-500/20 font-medium shadow-md hover:bg-neutral-100 dark:hover:bg-cyan-500/10 group transition-all duration-200">
+              <Icon name="heroicons:envelope-20-solid" class="text-xl text-slate-600 dark:text-cyan-400 group-hover:text-neon-cyan transition-colors duration-200" />
               E-mail
             </a>
           </div>
 
           <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Nuxt</span>
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Vue</span>
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Tailwind</span>
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Acessibilidade</span>
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Perf</span>
-            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-neutral-200 dark:border-white/10 hover:border-primary/50 hover:text-primary dark:hover:text-white transition-colors duration-200 cursor-default">Gestão Ágil</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Nuxt</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Vue</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Tailwind</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Acessibilidade</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Perf</span>
+            <span class="px-3 py-1 rounded-md bg-white/60 dark:bg-white/5 text-xs font-semibold text-slate-600 dark:text-cyan-300 border border-cyan-500/20 dark:border-cyan-500/10 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-neon-cyan transition-all duration-200 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]">Gestão Ágil</span>
           </div>
         </div>
 
         <div class="flex justify-center lg:justify-end relative">
-          <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 rounded-full blur-3xl transform translate-x-4 translate-y-4 animate-pulse"></div>
-          <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full glass-panel border-4 border-white/20 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center group bg-white/50 dark:bg-transparent transition-colors duration-200">
-             <!-- Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-            <img src="/tiago.jpg" alt="Tiago Martins" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
+          <!-- Holographic ring around photo -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-purple-500/10 to-pink-500/10 dark:from-neon-cyan/20 dark:via-neon-purple/20 dark:to-neon-pink/20 rounded-full blur-3xl transform translate-x-4 translate-y-4 animate-pulse"></div>
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full glass-panel border-4 border-cyan-500/30 dark:border-cyan-500/20 shadow-lg dark:shadow-[0_0_50px_rgba(0,240,255,0.3)] overflow-hidden flex items-center justify-center group bg-white/50 dark:bg-transparent transition-all duration-500">
+            <!-- Holographic overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-purple-500/10 dark:via-neon-cyan/10 dark:to-neon-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+            <!-- Rotating ring effect -->
+            <div class="absolute inset-2 rounded-full border-2 border-dashed border-cyan-500/20 animate-rotate-slow pointer-events-none"></div>
+            <img src="/tiago.jpg" alt="Tiago Martins" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100 hologram-effect" />
           </div>
-          
-          <div class="absolute -bottom-4 -right-4 lg:bottom-10 lg:right-10 bg-white dark:bg-[#0f1115] p-4 rounded-2xl shadow-xl dark:shadow-[0_0_20px_rgba(0,0,0,0.6)] border border-neutral-200 dark:border-white/10 animate-bounce transition-colors duration-200" style="animation-duration: 3s;">
+
+          <div class="absolute -bottom-4 -right-4 lg:bottom-10 lg:right-10 bg-white dark:bg-[#0a0a1a] p-4 rounded-2xl shadow-xl dark:shadow-[0_0_20px_rgba(0,240,255,0.3)] border border-cyan-500/30 dark:border-cyan-500/20 animate-bounce transition-all duration-200" style="animation-duration: 3s;">
             <div class="flex items-center gap-3">
-              <div class="bg-blue-900/30 p-2 rounded-lg border border-blue-500/30 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
-                <Icon name="heroicons:code-bracket-20-solid" class="text-blue-400 text-xl" />
+              <div class="bg-cyan-100 dark:bg-cyan-500/20 p-2 rounded-lg border border-cyan-300 dark:border-cyan-500/40 shadow-sm dark:shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+                <Icon name="heroicons:code-bracket-20-solid" class="text-cyan-600 dark:text-neon-cyan text-xl" />
               </div>
               <div>
-                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium transition-colors duration-200">Experiência</p>
+                <p class="text-xs text-slate-500 dark:text-cyan-400 font-medium transition-colors duration-200" style="font-family: 'Rajdhani', sans-serif;">Experiência</p>
                 <p class="text-sm font-bold text-slate-900 dark:text-white transition-colors duration-200">8+ Anos</p>
               </div>
             </div>
@@ -116,11 +122,11 @@ const stackIcons = [
       </div>
     </div>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full" id="projects">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10" id="projects">
       <div class="flex flex-col items-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 relative inline-block drop-shadow-md transition-colors duration-200">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 relative inline-block drop-shadow-md transition-colors duration-200" style="font-family: 'Orbitron', sans-serif;">
           <span class="gradient-text">Meus Projetos</span>
-          <div class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full opacity-70 shadow-[0_0_10px_#a855f7]"></div>
+          <div class="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-neon-cyan to-transparent rounded-full opacity-70 shadow-[0_0_10px_#00f0ff]"></div>
         </h2>
         <p class="text-slate-600 dark:text-slate-300 text-center max-w-2xl font-light transition-colors duration-200">
           Uma seleção de projetos recentes que demonstram minhas habilidades em design e desenvolvimento frontend.
@@ -133,7 +139,7 @@ const stackIcons = [
 
       <div class="mt-12 flex justify-center">
         <NuxtLink to="/projetos">
-          <button class="glass-button px-8 py-3 rounded-full text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 font-medium shadow-md transition-all duration-200 hover:scale-105 hover:bg-neutral-100 dark:hover:bg-white/10">
+          <button class="glass-button px-8 py-3 rounded-full text-slate-700 dark:text-white bg-white/50 dark:bg-white/5 border border-cyan-500/20 dark:border-cyan-500/20 font-medium shadow-md transition-all duration-200 hover:scale-105 hover:bg-neutral-100 dark:hover:bg-cyan-500/10">
             Ver todos os projetos
             <Icon name="heroicons:arrow-right-20-solid" class="ml-2 w-5 h-5 inline-block" />
           </button>

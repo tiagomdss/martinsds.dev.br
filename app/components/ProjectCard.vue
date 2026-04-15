@@ -1,5 +1,14 @@
 <template>
-  <div class="bg-white dark:bg-[#121212] rounded-[2rem] overflow-hidden flex flex-col h-full border border-neutral-200 dark:border-white/5 group hover:border-purple-500/30 transition-all duration-200 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+  <div class="group relative rounded-[2rem] overflow-hidden flex flex-col h-full border border-cyan-500/20 dark:border-cyan-500/30 bg-white dark:bg-[#0a0a1a] hover:border-cyan-500/50 dark:hover:border-cyan-500/60 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] hologram-effect">
+    <!-- Neon glow effect on hover -->
+    <div class="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="box-shadow: 0 0 20px rgba(0,240,255,0.2), inset 0 0 20px rgba(0,240,255,0.05);"></div>
+    
+    <!-- Scan line effect -->
+    <div class="absolute inset-0 overflow-hidden rounded-[2rem] opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none">
+      <div class="scan-line"></div>
+    </div>
+
+    <!-- Image section -->
     <div class="h-56 overflow-hidden relative bg-neutral-100 dark:bg-white/5">
       <transition name="fade">
         <USkeleton v-if="loading" class="absolute inset-0 w-full h-full bg-neutral-100 dark:bg-white/5 z-10" />
@@ -12,32 +21,35 @@
         @load="onLoad"
         @error="onError"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 dark:opacity-50 dark:from-[#121212] transition-opacity duration-200"></div>
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 dark:opacity-70 dark:from-[#0a0a1a] transition-opacity duration-500"></div>
+      <!-- Holographic overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 via-transparent to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
     </div>
 
     <!-- Content Section -->
-    <div class="p-7 flex flex-col flex-grow">
-      <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2 leading-tight transition-colors duration-200">{{ project.title }}</h3>
-      
-      <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-5 line-clamp-3 flex-grow font-normal leading-relaxed transition-colors duration-200">
+    <div class="p-7 flex flex-col flex-grow relative z-10">
+      <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2 leading-tight transition-colors duration-200" style="font-family: 'Orbitron', sans-serif;">{{ project.title }}</h3>
+
+      <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-5 line-clamp-3 flex-grow font-normal leading-relaxed transition-colors duration-200" style="font-family: 'Rajdhani', sans-serif;">
         {{ project.description || 'Um projeto incrível desenvolvido com tecnologias modernas.' }}
       </p>
 
       <div class="flex flex-wrap gap-2 mb-6">
-        <span 
-          v-for="tag in (project.tags || ['Desenv', 'Web'])" 
+        <span
+          v-for="tag in (project.tags || ['Desenv', 'Web'])"
           :key="tag"
-          class="px-3 py-1 rounded-full text-xs font-semibold bg-neutral-100 dark:bg-[#1E1E1E] text-neutral-600 dark:text-neutral-300 border border-neutral-200 dark:border-white/5 shadow-sm transition-colors duration-200"
+          class="px-3 py-1 rounded-full text-xs font-semibold bg-neutral-100 dark:bg-[#1a1a2e] text-neutral-600 dark:text-cyan-300 border border-neutral-200 dark:border-cyan-500/20 shadow-sm transition-all duration-200 hover:border-cyan-500/50 hover:shadow-[0_0_10px_rgba(0,240,255,0.2)]"
         >
           {{ tag }}
         </span>
       </div>
 
-      <NuxtLink 
-        :href="project.href" 
-        target="_blank" 
+      <NuxtLink
+        :href="project.href"
+        target="_blank"
         rel="noopener noreferrer"
-        class="w-full py-3.5 rounded-xl bg-purple-50 dark:bg-[#1a1625] hover:bg-purple-100 dark:hover:bg-[#2d2440] text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-center transition-all duration-200 border border-purple-100 dark:border-white/5 hover:border-purple-200 dark:hover:border-purple-500/30 flex items-center justify-center gap-2 mt-auto"
+        class="w-full py-3.5 rounded-xl bg-cyan-50 dark:bg-[#0f0f23] hover:bg-cyan-100 dark:hover:bg-[#1a1a3e] text-cyan-600 dark:text-neon-cyan hover:text-cyan-700 dark:hover:text-cyan-300 font-medium text-center transition-all duration-300 border border-cyan-100 dark:border-cyan-500/20 hover:border-cyan-500/50 dark:hover:border-cyan-500/60 flex items-center justify-center gap-2 mt-auto hover:shadow-[0_0_20px_rgba(0,240,255,0.2)]"
       >
         Ver Projeto
         <Icon name="heroicons:arrow-right-20-solid" class="w-4 h-4" />

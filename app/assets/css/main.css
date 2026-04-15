@@ -3,64 +3,210 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Glass morphism - futurista */
   .glass-panel {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)];
+    @apply backdrop-blur-xl border shadow-lg;
+    @apply bg-white/80 border-gray-200/50 shadow-gray-200/50;
+    @apply dark:bg-white/5 dark:border-white/10 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)];
   }
 
   .glass-nav {
-    @apply bg-[#050505]/65 backdrop-blur-[20px] border-b border-white/15 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)];
+    @apply backdrop-blur-[20px] border-b;
+    @apply bg-white/80 border-gray-200/50;
+    @apply dark:bg-[#050510]/70 dark:border-cyan-500/20;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    @apply dark:shadow-[0_0_30px_rgba(0,240,255,0.1),0_10px_40px_-10px_rgba(0,0,0,0.8)];
   }
 
   .glass-button {
-    @apply bg-white/5 border border-purple-500/30 transition-all duration-300;
+    @apply backdrop-blur-sm transition-all duration-300 relative overflow-hidden border;
+    @apply bg-white/50 border-gray-300/50;
+    @apply dark:bg-white/5 dark:border-cyan-500/30;
   }
-  
+
+  .glass-button::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full transition-transform duration-700;
+    @apply bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0;
+  }
+
+  .glass-button:hover::before {
+    @apply translate-x-full;
+  }
+
   .glass-button:hover {
-    @apply bg-purple-500/15 border-purple-500/80 -translate-y-0.5 shadow-[0_0_15px_rgba(168,85,247,0.25)];
+    @apply -translate-y-0.5;
+    @apply bg-cyan-50 border-cyan-400;
+    @apply dark:bg-cyan-500/15 dark:border-cyan-500/80;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2), 0 0 40px rgba(6, 182, 212, 0.1);
+    @apply dark:shadow-[0_0_20px_rgba(0,240,255,0.3),0_0_40px_rgba(0,240,255,0.1)];
   }
 
+  /* Gradiente de texto */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#c084fc] to-[#f472b6];
-    text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600;
+    @apply dark:from-neon-cyan dark:via-neon-purple dark:to-neon-pink;
+    filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.2));
+    @apply dark:drop-shadow-[0_0_10px_rgba(0,240,255,0.3)];
   }
 
+  /* Card de projeto com efeito holográfico */
   .glass-card-project {
-    background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(10, 10, 15, 0.4));
-    @apply backdrop-blur-xl border border-purple-500/25 shadow-[0_4px_30px_rgba(0,0,0,0.6)] transition-all duration-500;
+    @apply backdrop-blur-xl transition-all duration-500 relative overflow-hidden border;
+    @apply bg-white border-gray-200;
+    @apply dark:bg-[#0a0a1a]/80 dark:border-cyan-500/20;
+  }
+
+  .glass-card-project::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(45deg, transparent 30%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
+  }
+
+  .glass-card-project:hover::before {
+    @apply opacity-100;
   }
 
   .glass-card-project:hover {
-    background: linear-gradient(135deg, rgba(30, 30, 35, 0.8), rgba(20, 20, 25, 0.5));
-    @apply border-purple-500/80 -translate-y-2 shadow-[0_15px_40px_rgba(0,0,0,0.8)] shadow-purple-500/15;
+    @apply -translate-y-2;
+    @apply border-cyan-400;
+    @apply dark:border-cyan-500/60;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(6, 182, 212, 0.15);
+    @apply dark:shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_30px_rgba(0,240,255,0.2),inset_0_0_30px_rgba(0,240,255,0.05)];
   }
 
+  /* Pílula de vidro */
   .glass-pill {
-    @apply bg-white/5 border border-white/10 text-slate-300;
+    @apply backdrop-blur-sm border;
+    @apply bg-white/50 border-gray-200/50 text-slate-600;
+    @apply dark:bg-white/5 dark:border-white/10 dark:text-slate-300;
   }
 
+  /* Links de navegação com efeito */
   .nav-link {
     @apply relative;
   }
 
   .nav-link.active::after {
     content: '';
-    @apply absolute -bottom-1 left-[10%] w-[80%] h-0.5 bg-purple-500 shadow-[0_0_8px_#a855f7] rounded-sm;
+    @apply absolute -bottom-1 left-[10%] w-[80%] h-0.5 rounded-sm;
+    @apply bg-gradient-to-r from-transparent via-cyan-500 to-transparent;
+    @apply dark:from-transparent dark:via-neon-cyan dark:to-transparent;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    @apply dark:shadow-[0_0_10px_#00f0ff,0_0_20px_#00f0ff];
   }
 
   .nav-link:hover::after {
     content: '';
-    @apply absolute -bottom-1 left-[10%] w-[80%] h-0.5 bg-purple-500/50 shadow-[0_0_5px_rgba(168,85,247,0.5)] rounded-sm animate-fade-in;
+    @apply absolute -bottom-1 left-[10%] w-[80%] h-0.5 rounded-sm animate-fade-in;
+    @apply bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent;
+    @apply dark:from-transparent dark:via-cyan-500/50 dark:to-transparent;
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.3);
+    @apply dark:shadow-[0_0_5px_rgba(0,240,255,0.5)];
   }
 
+  /* Efeito de brilho no toggle */
   .toggle-glow {
-    @apply shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-white/10;
+    @apply border;
+    @apply shadow-[0_0_15px_rgba(6,182,212,0.2)] border-gray-300/50;
+    @apply dark:shadow-[0_0_15px_rgba(0,240,255,0.3)] dark:border-white/10;
   }
 
   .toggle-glow:hover {
-    @apply shadow-[0_0_20px_rgba(59,130,246,0.6)] bg-white/5;
+    @apply shadow-[0_0_20px_rgba(6,182,212,0.3)] bg-white/10;
+    @apply dark:shadow-[0_0_25px_rgba(0,240,255,0.6)] dark:bg-white/5;
+  }
+
+  /* Grid cyberpunk animado */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    @apply dark:bg-image-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,240,255,0.03)_1px,transparent_1px)];
+  }
+
+  /* Linha de scan */
+  .scan-line {
+    @apply absolute left-0 w-full h-0.5;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+    @apply dark:bg-gradient-to-r dark:from-transparent dark:via-cyan-500/50 dark:to-transparent;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+    @apply dark:shadow-[0_0_10px_rgba(0,240,255,0.5)];
+    animation: scan 3s linear infinite;
+  }
+
+  /* Efeito holograma */
+  .hologram-effect {
+    animation: hologram 8s ease-in-out infinite;
+  }
+
+  /* Borda pulsante */
+  .neon-border {
+    @apply border;
+    @apply border-cyan-500/30;
+    @apply dark:border-cyan-500/30;
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  /* Texto com efeito */
+  .neon-text {
+    @apply text-cyan-600 dark:text-neon-cyan;
+    animation: neonFlicker 3s ease-in-out infinite;
+  }
+
+  /* Efeito de glitch sutil */
+  .glitch-subtle {
+    position: relative;
+  }
+
+  .glitch-subtle::before,
+  .glitch-subtle::after {
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
+  .glitch-subtle::before {
+    animation: glitch-1 2s infinite linear alternate-reverse;
+    @apply text-cyan-600 dark:text-neon-cyan;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+
+  .glitch-subtle::after {
+    animation: glitch-2 3s infinite linear alternate-reverse;
+    @apply text-pink-600 dark:text-neon-pink;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+
+  /* Partículas flutuantes */
+  .floating-particle {
+    @apply absolute rounded-full;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.6), transparent);
+    @apply dark:bg-[radial-gradient(circle,rgba(0,240,255,0.8),transparent)];
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Efeito de circuito */
+  .circuit-bg {
+    background-image: 
+      linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    @apply dark:bg-image-[linear-gradient(90deg,rgba(0,240,255,0.03)_1px,transparent_1px),linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px)];
+  }
+
+  /* Aurora boreal no fundo */
+  .aurora-bg {
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(219, 39, 119, 0.06) 0%, transparent 50%);
+    @apply dark:bg-[radial-gradient(ellipse_at_20%_50%,rgba(0,240,255,0.1)_0%,transparent_50%),radial-gradient(ellipse_at_80%_50%,rgba(176,38,255,0.1)_0%,transparent_50%),radial-gradient(ellipse_at_50%_80%,rgba(255,42,109,0.08)_0%,transparent_50%)];
   }
 }
 
+/* Animações */
 @keyframes fadeIn {
   from { opacity: 0; transform: scaleX(0); }
   to { opacity: 1; transform: scaleX(1); }
@@ -68,4 +214,66 @@
 
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes hologram {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.95; filter: brightness(1.05) hue-rotate(5deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(6, 182, 212, 0.2), 0 0 10px rgba(6, 182, 212, 0.1); }
+  50% { box-shadow: 0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2), 0 0 30px rgba(6, 182, 212, 0.1); }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 7px rgba(6, 182, 212, 0.5), 0 0 10px rgba(6, 182, 212, 0.3);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.9;
+  }
+}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Estilos base */
+@layer base {
+  body {
+    @apply bg-white text-slate-900;
+    @apply dark:bg-deep-space dark:text-slate-100;
+  }
 }
