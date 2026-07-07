@@ -3,9 +3,12 @@ export default defineNuxtConfig({
 		resendApiKey: process.env.RESEND_API_KEY || '',
 		contactEmail: process.env.CONTACT_EMAIL || '',
 	},
-nitro: {
+	nitro: {
+		experimental: {
+			wasm: true
+		},
 		rollupConfig: {
-			external: ['@react-email/render']
+			external: ['@react-email/render', /@resvg\/resvg-js/]
 		}
 	},
 	css: ['~/assets/global.css'],
