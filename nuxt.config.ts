@@ -3,6 +3,10 @@ export default defineNuxtConfig({
 		resendApiKey: process.env.RESEND_API_KEY || '',
 		contactEmail: process.env.CONTACT_EMAIL || '',
 	},
+nitro: {
+		rollupConfig: {
+			external: ['@react-email/render']
+		},
 	css: ['~/assets/global.css'],
 	srcDir: 'app',
 	modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/image', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss'],
